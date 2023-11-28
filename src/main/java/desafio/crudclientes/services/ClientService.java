@@ -3,6 +3,8 @@ package desafio.crudclientes.services;
 import desafio.crudclientes.dtos.ClientDto;
 import desafio.crudclientes.entities.Client;
 import desafio.crudclientes.repositories.ClientRepository;
+import desafio.crudclientes.services.exceptions.ResourceNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,7 +26,7 @@ public class ClientService {
     @Transactional(readOnly = true)
     public ClientDto findById(Long id) {
         Client client = clientRepository.findById(id).orElseThrow(
-                () -> new RuntimeException("Recurso não encontrado")
+                () -> new ResourceNotFoundException("Recurso não encontrado")
         );
         return criaClientDto(client);
     }
@@ -38,13 +40,19 @@ public class ClientService {
 
     @Transactional
     public ClientDto update(Long id, ClientDto clientDto) {
-        Client entity = clientRepository.getReferenceById(id);
-
-        return copiaDtoToEntityESalva(clientDto, entity);
+        try {
+            Client entity = clientRepository.getReferenceById(id);
+            return copiaDtoToEntityESalva(clientDto, entity);
+        } catch (EntityNotFoundException e) {
+            throw new ResourceNotFoundException("Recurso não encontrado");
+        }
     }
 
     @Transactional(propagation = Propagation.SUPPORTS)
     public void delete(Long id) {
+        if (!clientRepository.existsById(id))
+            throw new ResourceNotFoundException("Recurso não encontrado");
+
         clientRepository.deleteById(id);
     }
 
