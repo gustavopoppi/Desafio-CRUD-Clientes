@@ -2,6 +2,7 @@ package desafio.crudclientes.controllers;
 
 import desafio.crudclientes.dtos.ClientDto;
 import desafio.crudclientes.services.ClientService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -31,7 +32,7 @@ public class ClientController {
     }
 
     @PostMapping()
-    public ResponseEntity<ClientDto> insert(@RequestBody ClientDto clientDto){
+    public ResponseEntity<ClientDto> insert(@Valid @RequestBody ClientDto clientDto){
         clientDto = clientService.insert(clientDto);
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
@@ -41,7 +42,7 @@ public class ClientController {
     }
 
     @PutMapping(value = "{id}")
-    public ResponseEntity<ClientDto> update(@PathVariable Long id, @RequestBody ClientDto clientDto){
+    public ResponseEntity<ClientDto> update(@PathVariable Long id, @Valid @RequestBody ClientDto clientDto){
         clientDto = clientService.update(id, clientDto);
         return ResponseEntity.ok(clientDto);
     }
