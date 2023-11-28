@@ -16,17 +16,9 @@ public class Client {
     private String name;
     private Double income;
     private LocalDate birthDate;
-    private Integer childer;
+    private Integer children;
 
     public Client() {}
-
-    public Client(Long id, String name, Double income, LocalDate birthDate, Integer childer) {
-        this.id = id;
-        this.name = name;
-        this.income = income;
-        this.birthDate = birthDate;
-        this.childer = childer;
-    }
 
     public Long getId() {
         return id;
@@ -60,11 +52,11 @@ public class Client {
         this.birthDate = birthDate;
     }
 
-    public Integer getChilder() {
-        return childer;
+    public Integer getChildren() {
+        return children;
     }
 
-    public void setChilder(Integer childer) {
-        this.childer = childer;
+    public void setChildren(Integer children) {
+        this.children = children;
     }
 }
