@@ -1,0 +1,10 @@
+INSERT INTO CLIENT(name, income, birth_date, children) VALUES('Osvaldo Sérgio Corte Real', 2500.00, '1990-09-25', 2);
+INSERT INTO CLIENT(name, income, birth_date, children) VALUES('Paulo Francisco Theo Vieira', 2500.00, '1990-01-13', 1);
+INSERT INTO CLIENT(name, income, birth_date, children) VALUES('Leandro Sebastião Enzo Peixoto', 1840.00, '2000-02-01', 2);
+INSERT INTO CLIENT(name, income, birth_date, children) VALUES('Oliver Fábio da Mata', 2811.00, '1992-08-11', 3);
+INSERT INTO CLIENT(name, income, birth_date, children) VALUES('Enrico Sérgio Noah Monteiro', 2023.00, '1998-02-23', 5);
+INSERT INTO CLIENT(name, income, birth_date, children) VALUES('Rodrigo Leandro Castro', 1120.00, '1960-03-28', 1);
+INSERT INTO CLIENT(name, income, birth_date, children) VALUES('Cláudio Hugo Baptista', 2811.23, '1955-09-12', 1);
+INSERT INTO CLIENT(name, income, birth_date, children) VALUES('Yuri Guilherme da Rosa', 1828.11, '1970-09-09', 3);
+INSERT INTO CLIENT(name, income, birth_date, children) VALUES('Iago Gustavo Luís Pereira', 2011.00, '2001-11-20', 5);
+INSERT INTO CLIENT(name, income, birth_date, children) VALUES('Luís Otávio Thiago Mendes', 4810.70, '2002-06-12', 1);
